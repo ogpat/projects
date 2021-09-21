@@ -4,6 +4,8 @@ use std::io;
 use rand::Rng;
 // import the Ordering enum from the standard library
 use std::cmp::Ordering;
+//import color library
+use colored::*;
 
 fn main() {
     //Welcome message
@@ -41,9 +43,9 @@ fn main() {
     //compare user input against secret number
     match user_input.cmp(&secret) {
         //these options (Equal, Greater, Less) are called "variants"
-        Ordering::Greater => println!("Your guess was too big"),
-        Ordering::Less => println!("Your guess was too small"),
-        Ordering::Equal => {println!("Your guess was correct!");
+        Ordering::Greater => println!("{}", "Your guess was too big".red()),
+        Ordering::Less => println!("{}", "Your guess was too small".red()),
+        Ordering::Equal => {println!("{}", "Your guess was correct!".green());
         break;
         }
     }
